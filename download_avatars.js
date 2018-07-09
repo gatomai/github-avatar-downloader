@@ -1,6 +1,12 @@
 var request = require('request');
 var secret = require('./secrets.js');
 
+var args = process.argv.slice(2);
+
+var owner = args[0];
+var repo = args[1];
+
+console.log('The owner is :' + owner + ' The Repo is: ' + repo);
 
 console.log('Welcome to the GitHub Avatar Downloader');
 
@@ -19,7 +25,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
 }
 
-getRepoContributors("jquery", "jquery", function (err, result) {
+getRepoContributors(owner, repo, function (err, result) {
     console.log("Errors:", err);
     // console.log("Result:", result);
     var jres = JSON.parse(result);
