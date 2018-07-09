@@ -8,6 +8,11 @@ var repo = args[1];
 
 console.log('The owner is :' + owner + ' The Repo is: ' + repo);
 
+if(owner === undefined || repo === undefined) {
+    throw new Error('Owner and/or Repo not provided... EXITING');    
+
+}
+
 console.log('Welcome to the GitHub Avatar Downloader');
 
 function getRepoContributors(repoOwner, repoName, cb) {
